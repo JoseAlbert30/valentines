@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aaina, Be My Valentine 💖</title>
+    <title>Be My Valentine 💖</title>
 
     <!-- Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -88,7 +88,7 @@
   <body>
     <div class="card" id="card">
       <div class="emoji">🐣💗</div>
-      <h1>Aaina, will you be my Valentine?</h1>
+      <h1 id="question">Aaina, will you be my Valentine?</h1>
 
       <div class="buttons" id="buttons">
         <button id="yesBtn">Yes 💖</button>
@@ -99,6 +99,13 @@
     </div>
 
     <script>
+      // Get URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('love') || 'Aaina';
+      
+      // Update the question with the name
+      document.getElementById('question').textContent = `${name}, will you be my Valentine?`;
+
       const noBtn = document.getElementById("noBtn");
       const yesBtn = document.getElementById("yesBtn");
 
@@ -164,7 +171,7 @@
           if (Date.now() < end) requestAnimationFrame(frame);
         })();
       });
-      
+
     </script>
   </body>
 </html>
